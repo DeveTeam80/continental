@@ -1,0 +1,83 @@
+.section--no-overflow,
+.section--no-overflow .section__content {
+  overflow: hidden;
+  contain: content;
+}
+.section {
+  position: relative;
+}
+.section:where(:not(:first-child)) {
+  margin-top: -1px;
+}
+.img-full,
+.img-full img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+.parallax-image-move {
+  overflow: hidden;
+  overflow: clip;
+}
+.parallax-image-move img {
+  position: relative;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-top: var(--md, -19%) var(--n-md, 0);
+}
+.parallax-image-move--alt img {
+  margin-bottom: var(--md, -19%) var(--n-md, 0);
+  margin-top: 0;
+}
+.parallax-image-move.background--cover img {
+  margin-bottom: 0;
+  height: var(--md, 120%) var(--n-md, 100%);
+}
+.parallax-image-move.background--top-cover img {
+  margin-bottom: 0;
+  height: var(--md, 120%) var(--n-md, auto);
+}
+picture {
+  display: block;
+}
+.text-lead-lg,
+.text .h2,
+.text .text-h2,
+.text h2 {
+  font-family: Decart, sans-serif;
+  font-weight: 400;
+  --fos: -0.05em;
+  --foe: -0.25em;
+  font-size: var(--xxxxl, calc(var(--scale-text-rem) * 5.7))
+    var(
+      --n-xxxxl,
+      var(--xxl, calc(var(--scale-text-rem) * 4.2))
+        var(
+          --n-xxl,
+          var(--md, calc(var(--scale-text-rem) * 3.4))
+            var(--n-md, calc(var(--scale-text-rem) * 2))
+        )
+    );
+  --lh: var(--xxxxl, 1.14035em)
+    var(
+      --n-xxxxl,
+      var(--xxl, 1.19048em)
+        var(--n-xxl, var(--md, 1.17647em) var(--n-md, 1.2em))
+    );
+  line-height: var(--lh);
+  letter-spacing: var(--md, 0) var(--n-md, 0.02em);
+  text-transform: uppercase;
+}
+.h1,
+.is-win .text-lead-lg,
+.is-win .text .h2,
+.is-win .text .text-h2,
+.is-win .text h2,
+.text-h1,
+.text .is-win .h2,
+.text .is-win .text-h2,
+.text .is-win h2,
+h1 {
+  --fos: -0.05em;
+  --foe: -0.25em;
+}
