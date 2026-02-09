@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const ArchitectureSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null); // Rebuild trigger
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -38,7 +38,7 @@ const ArchitectureSection: React.FC = () => {
   const archPadding = useTransform(
     smoothProgress,
     [0.35, 0.75],
-    ['8rem', '0rem' ]
+    ['8rem', '0rem']
   );
 
   /* Image motion */
@@ -48,32 +48,31 @@ const ArchitectureSection: React.FC = () => {
   return (
     <motion.div
       ref={containerRef}
-      className="relative h-[450vh] w-full bg-white"
+      className="relative h-[450vh] w-full bg-secondary"
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
         {/* ───── Intro Text Layer ───── */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-6">
           <motion.div style={{ opacity: titleOpacity, y: titleY }} className="text-center mb-12">
-            <h2 className="text-[10vw] font-serif italic text-[#0f395c] leading-none">
-              Architecture, <br/>With Intention
-
+            <h2 className="text-[8vw] font-serif italic leading-none text-gradient-gold">
+              Not Slogans. <br />Real Differentiators.
             </h2>
-            <div className="w-24 h-px bg-[#ca8c19] mx-auto mt-6" />
+            <div className="w-24 h-px bg-gradient-gold mx-auto mt-6" />
           </motion.div>
           <motion.div
-          // initial={{ opacity: 0, y: 50 }}
-          style={{ opacity: descOpacity, y: descY }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 1, delay: 0.2 }}
-          className="mt-6 max-w-7xl mx-auto text-center"
-        >
-          <div className="max-w-full mx-auto text-center px-6">
-            <p className="text-3xl leading-relaxed tracking-wide text-[#ca8c19] uppercase">
-               At Continental Group, architecture is designed with purpose, not performance. Conceived by Hafeez Contractor, every proportion, elevation, and line is composed to convey permanence, balance, and quiet confidence. The design doesn’t seek attention, it earns it, through restraint, dignity, and timeless presence.
-            </p>
-          </div>
-        </motion.div>
+            // initial={{ opacity: 0, y: 50 }}
+            style={{ opacity: descOpacity, y: descY }}
+            // whileInView={{ opacity: 1, y: 0 }}
+            // transition={{ duration: 1, delay: 0.2 }}
+            className="mt-6 max-w-7xl mx-auto text-center"
+          >
+            <div className="max-w-full mx-auto text-center px-6">
+              <p className="text-3xl leading-relaxed tracking-wide text-white/90 uppercase">
+                Self-owned land parcels. Proven delivery track record. Premium Mivan construction technology. Low-density planning. We don’t chase scale. We protect reputation.
+              </p>
+            </div>
+          </motion.div>
         </div>
 
         {/* ───── Expanding Semi-Circle Frame ───── */}
@@ -86,7 +85,7 @@ const ArchitectureSection: React.FC = () => {
             padding: archPadding,
           }}
           className="
-            absolute z-10 bg-white origin-bottom box-border
+            absolute z-10 bg-secondary origin-bottom box-border
             shadow-[0_-40px_80px_rgba(0,0,0,0.18)]
           "
         >

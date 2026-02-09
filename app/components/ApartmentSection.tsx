@@ -16,7 +16,7 @@ const PROJECTS = [
     id: 1,
     title: "Continental Heights",
     description:
-      "A landmark that redefined living in South Mumbai. Continental Heights is more than a residential address—it is a community built on trust, familiarity, and enduring values. Designed for those who seek comfort in belonging, it stands today as a reflection of precision, care, and a legacy thoughtfully delivered.",
+      "A landmark that redefined living in South Mumbai. Continental Heights is more than a residential address—it is a community built on trust, familiarity, and enduring values. Delivered as promised, it stands today as lived proof of our commitment to precision, care, and quality.",
     image: "assets/images/horizon/about-ch-01.jpg",
     link: "/continental-heights",
   },
@@ -24,7 +24,7 @@ const PROJECTS = [
     id: 2,
     title: "Continental Horizon",
     description:
-      "The next chapter in the Continental journey. Horizon represents a refined evolution—where architectural vision, thoughtful planning, and elevated living come together. Designed for those who value discretion, continuity, and quiet luxury, it carries forward the trust of Heights into a new expression of aspiration.",
+      "The next chapter in our legacy. Located in Mazgaon, Horizon is designed as a refined, future-ready address for families who value quality, proximity, and long-term confidence. A project built not just to sell, but to be lived in proudly.",
     image: "assets/images/horizon/horizons-5.png",
     link: "/continental-horizon",
   },
@@ -85,7 +85,7 @@ const PlansSection: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative h-[300vh] bg-white text-[#825541]"
+      className="relative h-[300vh] bg-white text-secondary"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* BACKGROUND CAROUSEL */}
@@ -128,13 +128,13 @@ const PlansSection: React.FC = () => {
             "
           >
             <div className="space-y-8">
-              <h3 className="text-sm tracking-[0.3em] uppercase text-[#ca8c19]">
+              <h3 className="text-sm tracking-[0.3em] uppercase text-primary">
                 {activeProject.title}
               </h3>
 
-              <div className="h-px w-full bg-[#825541]/20" />
+              <div className="h-px w-full bg-secondary/20" />
 
-              <p className="text-[15px] leading-relaxed text-[#825541]/80 max-w-[420px]">
+              <p className="text-[15px] leading-relaxed text-secondary/80 max-w-[420px]">
                 {activeProject.description}
               </p>
 
@@ -143,9 +143,9 @@ const PlansSection: React.FC = () => {
                 className="
                   inline-flex items-center justify-center w-fit
                   px-8 py-4 rounded-full
-                  bg-[#ca8c19] text-white
+                  bg-primary text-white
                   text-[11px] font-semibold tracking-[0.3em] uppercase
-                  hover:bg-[#825541] transition-colors
+                  hover:bg-secondary transition-colors
                 "
               >
                 Explore the Landmark
@@ -153,8 +153,8 @@ const PlansSection: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="text-xs tracking-[0.3em] text-[#825541]/50">
-                <span className="text-[#825541]">{index + 1}</span> /{" "}
+              <div className="text-xs tracking-[0.3em] text-secondary/50">
+                <span className="text-secondary">{index + 1}</span> /{" "}
                 {PROJECTS.length}
               </div>
 
@@ -163,10 +163,10 @@ const PlansSection: React.FC = () => {
                   onClick={() => paginate(-1)}
                   className="
                     w-12 h-12 rounded-full
-                    border border-[#825541]/30
+                    border border-secondary/30
                     flex items-center justify-center
-                    text-[#825541]
-                    hover:bg-[#ca8c19] hover:text-white
+                    text-secondary
+                    hover:bg-primary hover:text-white
                     transition-all
                   "
                 >
@@ -176,10 +176,10 @@ const PlansSection: React.FC = () => {
                   onClick={() => paginate(1)}
                   className="
                     w-12 h-12 rounded-full
-                    border border-[#825541]/30
+                    border border-secondary/30
                     flex items-center justify-center
-                    text-[#825541]
-                    hover:bg-[#ca8c19] hover:text-white
+                    text-secondary
+                    hover:bg-primary hover:text-white
                     transition-all
                   "
                 >
@@ -194,7 +194,7 @@ const PlansSection: React.FC = () => {
         <div className="relative z-10 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
           <motion.h2
             style={{ x: titleX }}
-            className="text-[5vw] font-serif uppercase leading-none text-right text-[#0f395c] pointer-events-none"
+            className="text-[5vw] font-serif uppercase leading-none text-right text-secondary pointer-events-none"
           >
             Our <br /> Projects
           </motion.h2>

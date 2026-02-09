@@ -52,48 +52,35 @@ const NewEraSection: React.FC = () => {
         {/* Eyebrow */}
         <motion.p
           style={{ opacity: textOpacity, y: textY }}
-          className="text-[#0f395c] text-md tracking-[0.4em] uppercase mb-8"
+          className="text-secondary text-md tracking-[0.4em] uppercase mb-8"
         >
-          A way of living, thoughtfully elevated
+          Calm. Confident. Considered.
         </motion.p>
 
-        <motion.h2
-          style={{ opacity: textOpacity, y: textY }}
-          className="max-w-5xl text-white text-4xl md:text-6xl font-light leading-tight mb-24"
-        >
-          A new chapter shaped by trust, <br />
-          crafted for the way you live.
-        </motion.h2>
+        {/* Main Title */}
+        <h2 className="text-6xl md:text-8xl font-serif text-white mb-12">
+          We Invite <br />
+          <span className="italic">Conversations</span>
+        </h2>
 
-        {/* =========================
-            CTA BUTTON
-        ========================= */}
+        {/* Button */}
         <motion.button
-          style={{
-            opacity: useTransform(smoothScroll, [0.3, 0.5], [0, 1]),
-            scale: useTransform(smoothScroll, [0.3, 0.5], [0.9, 1]),
-          }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           className="
             relative
-            w-40 h-40
+            w-64 h-64
             rounded-full
-            bg-[#ca8c19]
+            bg-primary
             text-white
             flex flex-col items-center justify-center
             shadow-xl
-            transition-transform duration-500
-            hover:scale-105
+            group
+            overflow-hidden
           "
         >
-          <span className="text-[11px] font-semibold tracking-[0.5em] uppercase">
-            Begin Your
-          </span>
-          <span className="text-2xl font-serif italic leading-none mt-1">
-            Journey
-          </span>
-
-          {/* Inner ring */}
-          {/* <span className="absolute inset-4 rounded-full border border-white/40" /> */}
+          <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <span className="relative z-10 text-center px-4">Request a <br />Private Preview</span>
         </motion.button>
       </div>
     </section>

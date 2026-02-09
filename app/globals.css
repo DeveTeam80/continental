@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #0075bb;
+    /* Bright Blue */
+    --color-secondary: #0f395c;
+    /* Dark Blue - Main BG */
+    --color-accent: #ca8c19;
+    /* Gold - Highlights */
+    --color-accent-light: #eec06b;
+    /* Gold Light for Gradient */
+
+    --font-decart: Decart, serif;
+    --font-gilroy: Gilroy, sans-serif;
+    --font-serif: Decart, "Playfair Display", serif;
+    --font-sans: Gilroy, Inter, sans-serif;
+
+    --background-image-gradient-gold: linear-gradient(180deg, #eec06b 0%, #ca8c19 100%);
+    --background-image-gradient-gold-h: linear-gradient(90deg, #eec06b 0%, #ca8c19 100%);
+}
+
+.text-gradient-gold {
+    background: linear-gradient(180deg, #eec06b 0%, #ca8c19 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-gold {
+    background: linear-gradient(90deg, #eec06b 0%, #ca8c19 100%);
+}
+
+@font-face {
+    font-family: 'Decart';
+    src: url('/fonts/Decart-Regular.woff2') format('woff2'),
+        url('/fonts/Decart-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/fonts/Gilroy-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 5, 25, 54;
+    /* Keeping legacy dark blue as base for now, can update to #0f395c */
+    --background-end-rgb: 5, 25, 54;
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: #0f395c;
+    /* Updated to new secondary color */
+    font-family: 'Gilroy', 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Decart', 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar from legacy code */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f395c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0075bb;
+    /* Updated to new primary color */
+    border-radius: 10px;
+}

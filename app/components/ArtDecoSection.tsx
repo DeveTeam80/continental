@@ -40,13 +40,22 @@ const ArtDecoSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Content */}
           <motion.div style={{ y: textY }} className="lg:col-span-8 z-20">
-            <h2 className="text-8xl font-serif leading-tight mb-12 text-[#0f395c]">
-              A legacy of Precision & a
+            <h2 className="text-6xl font-serif leading-tight mb-12 text-secondary">
+              Legacy. Transparency.
               <br />
-             Commitment
-              <br />
-              to People.
+              Responsibility.
             </h2>
+            <div className="space-y-8 text-lg font-light leading-relaxed text-secondary/80 max-w-2xl">
+              <p>
+                The Continental Group is a legacy-driven real estate developer, built on trust, values, and long-term responsibility. We are not volume builders. We are not transactional developers.
+              </p>
+              <p>
+                We focus on creating thoughtfully planned residential and commercial spaces that stand the test of time — structurally, ethically, and culturally. Our developments are rooted in self-owned land, transparent processes, and a deep respect for the communities we build for.
+              </p>
+              <p className="font-medium text-primary">
+                That’s why Continental is not just a name — it’s a long-term commitment.
+              </p>
+            </div>
           </motion.div>
 
           {/* Right Visual / Animation Canvas */}
@@ -59,7 +68,7 @@ const ArtDecoSection: React.FC = () => {
                 {/* Ring 1 */}
                 <motion.div
                   style={{ opacity: ring1Opacity }}
-                  className="absolute inset-0 border border-[#ca8c19]/60 rounded-full"
+                  className="absolute inset-0 border border-primary/60 rounded-full"
                   animate={{ rotateX: [60, 70, 60], rotateY: [0, 360] }}
                   transition={{
                     duration: 15,
@@ -71,7 +80,7 @@ const ArtDecoSection: React.FC = () => {
                 {/* Ring 2 */}
                 <motion.div
                   style={{ opacity: ring2Opacity, scale: 0.85 }}
-                  className="absolute inset-0 border-[1.5px] border-[#ca8c19]/40 rounded-full"
+                  className="absolute inset-0 border-[1.5px] border-primary/40 rounded-full"
                   animate={{ rotateX: [45, 55, 45], rotateY: [360, 0] }}
                   transition={{
                     duration: 20,
@@ -83,7 +92,7 @@ const ArtDecoSection: React.FC = () => {
                 {/* Ring 3 */}
                 <motion.div
                   style={{ opacity: ring3Opacity, scale: 0.7 }}
-                  className="absolute inset-0 border-[2px] border-[#ca8c19]/30 rounded-full"
+                  className="absolute inset-0 border-[2px] border-primary/30 rounded-full"
                   animate={{ rotateX: [30, 40, 30], rotateY: [0, 360] }}
                   transition={{
                     duration: 25,
@@ -93,7 +102,7 @@ const ArtDecoSection: React.FC = () => {
                 />
 
                 {/* Central Gold Glow */}
-                <div className="absolute inset-0 m-auto w-1/4 h-1/4 bg-[#e6c16a]/20 blur-3xl rounded-full" />
+                <div className="absolute inset-0 m-auto w-1/4 h-1/4 bg-primary/20 blur-3xl rounded-full" />
               </div>
             </motion.div>
           </div>
@@ -123,15 +132,15 @@ const ArtDecoSection: React.FC = () => {
           className="mt-6 max-w-7xl mx-auto text-center"
         >
           <div className="max-w-full mx-auto text-center px-6">
-            <p className="text-4xl leading-relaxed tracking-wide text-[#ca8c19] uppercase">
-              Luxury lives in the strength of what holds a home together, the thought behind every detail, and the care with which spaces are shaped. At Continental, architectural excellence is guided by human values, creating environments that feel refined, familiar, and enduring. A legacy built not just to be lived in today, but to be trusted for generations.
+            <p className="text-3xl leading-relaxed tracking-wide text-primary uppercase">
+              We build for families who value stability, clarity, and legacy over short-term hype. Homes that are culturally aligned, family-oriented, and built on trust.
             </p>
           </div>
         </motion.div>
       </div>
 
       {/* Vertical Divider */}
-      <div className="absolute left-1/2 bottom-0 w-px h-64 bg-gradient-to-t from-[#ca8c19]/30 to-transparent -translate-x-1/2" />
+      <div className="absolute left-1/2 bottom-0 w-px h-64 bg-gradient-to-t from-primary/30 to-transparent -translate-x-1/2" />
     </section>
   );
 };

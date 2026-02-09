@@ -17,11 +17,11 @@ const INTERIOR_SLIDES = [
 
 const InteriorsSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  
+
   const loopedSlides = useMemo(() => [
     ...INTERIOR_SLIDES,
-     ...INTERIOR_SLIDES,
-      ...INTERIOR_SLIDES,
+    ...INTERIOR_SLIDES,
+    ...INTERIOR_SLIDES,
   ], []);
 
   // 2. Start the index in the middle set of images
@@ -70,17 +70,17 @@ const InteriorsSection: React.FC = () => {
 
   // Get the display index (0-4) for the progress bar
   const activeIndex = current % INTERIOR_SLIDES.length;
-//bg-[#f9f4ef]
+  //bg-[#f9f4ef]
   return (
-    <section id="interiors" ref={sectionRef} className="relative text-[#051936] pb-32 overflow-hidden">
-      
-      <div 
+    <section id="interiors" ref={sectionRef} className="relative text-white bg-secondary pb-32 overflow-hidden">
+
+      <div
         className="relative w-full mt-24 mb-48 group/carousel"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div className="flex justify-center items-center overflow-visible">
-          <motion.div 
+          <motion.div
             className="flex gap-8 items-center"
             initial={false}
             animate={{ x: `calc(50% - (${current} * (60vw + 2rem)) - 30vw)` }}
@@ -94,17 +94,17 @@ const InteriorsSection: React.FC = () => {
             {loopedSlides.map((slide, idx) => {
               // Only highlight the "current" slide
               const isCenter = idx === current;
-              
+
               return (
                 <motion.div
                   key={`${slide.id}-${idx}`}
-                  className="relative shrink-0 w-[60vw] aspect-[16/10] md:aspect-[16/9] overflow-hidden shadow-2xl rounded-sm bg-[#051936]"
-                  animate={{ 
+                  className="relative shrink-0 w-[60vw] aspect-[16/10] md:aspect-[16/9] overflow-hidden shadow-2xl rounded-sm bg-secondary"
+                  animate={{
                     scale: isCenter ? 1 : 0.9,
                     opacity: isCenter ? 1 : 1
                   }}
                 >
-                  <motion.img 
+                  <motion.img
                     src={slide.img}
                     alt={`Interior`}
                     className="w-full h-full object-cover"
@@ -120,14 +120,14 @@ const InteriorsSection: React.FC = () => {
         {/* Navigation Buttons */}
         <div className="absolute inset-0 flex z-30 pointer-events-none">
           <div onClick={prevSlide} className="flex-1 cursor-pointer pointer-events-auto group/prev relative">
-             <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#ca8c19]/90 text-white flex items-center justify-center shadow-2xl opacity-0 group-hover/prev:opacity-100 transition-all duration-500 scale-75 group-hover/prev:scale-100">
-                <ChevronLeft size={32} />
-             </div>
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-2xl opacity-0 group-hover/prev:opacity-100 transition-all duration-500 scale-75 group-hover/prev:scale-100">
+              <ChevronLeft size={32} />
+            </div>
           </div>
           <div onClick={nextSlide} className="flex-1 cursor-pointer pointer-events-auto group/next relative">
-             <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#ca8c19]/90 text-white flex items-center justify-center shadow-2xl opacity-0 group-hover/next:opacity-100 transition-all duration-500 scale-75 group-hover/next:scale-100">
-                <ChevronRight size={32} />
-             </div>
+            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-2xl opacity-0 group-hover/next:opacity-100 transition-all duration-500 scale-75 group-hover/next:scale-100">
+              <ChevronRight size={32} />
+            </div>
           </div>
         </div>
       </div>
@@ -139,13 +139,13 @@ const InteriorsSection: React.FC = () => {
         </motion.div>
         <div className="container-h relative h-full flex flex-col justify-end pb-32 px-6 max-w-7xl mx-auto z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 w-full">
-            <motion.div style={{ y: cardY }} className="md:col-span-4 lg:col-span-3 bg-white p-12 shadow-2xl relative border-l-4 border-[#ca8c19]">
+            <motion.div style={{ y: cardY }} className="md:col-span-4 lg:col-span-3 bg-white p-12 shadow-2xl relative border-l-4 border-primary">
               <div className="flex flex-col gap-6">
-                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#051936]/40 text-right">Ceiling height, m</span>
+                <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-secondary/40 text-right">Ceiling height, m</span>
                 <div className="flex items-baseline justify-start gap-1">
-                  <span className="text-9xl md:text-[10rem] font-serif leading-none text-[#051936]">5.</span>
+                  <span className="text-9xl md:text-[10rem] font-serif leading-none text-secondary">5.</span>
                   <div className="overflow-hidden h-[1em] relative">
-                    <motion.div animate={{ y: ["-100%", "0%"] }} transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }} className="flex flex-col text-9xl md:text-[10rem] font-serif leading-none text-[#ca8c19]">
+                    <motion.div animate={{ y: ["-100%", "0%"] }} transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }} className="flex flex-col text-9xl md:text-[10rem] font-serif leading-none text-primary">
                       <span>8</span>
                       <span>9</span>
                     </motion.div>

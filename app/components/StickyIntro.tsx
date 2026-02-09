@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import BackgroundFlower from "./BackgroundFlower";
+import { IntroPattern } from "./LogoPattern";
 
 const StickyIntro: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,86 +20,103 @@ const StickyIntro: React.FC = () => {
   });
 
   /* =========================
-     CURTAIN (UNCHANGED)
+      CURTAIN / IMAGE ANIMATION
   ========================= */
-  const initialClip = "inset(18% 40% 18% 40%)";
-  const framedClip = "inset(15% 20% 15% 20%)";
+  // 1. Initial State (Very small, closed curtain)
+  const startClip = "inset(25% 45% 25% 45%)"; // RENAMED from initialClip to startClip
+
+  // 2. Intro State (The "Clipped Image" you want on load)
+  const introClip = "inset(10% 20% 10% 20%)";
+
+  // 3. Full State (Fully open)
+  const fullClip = "inset(0% 0% 0% 0%)";
 
   const scrollClip = useTransform(
     smoothProgress,
-    [0, 0.5, 0.85],
-    [framedClip, "inset(8% 10% 8% 10%)", "inset(0% 0% 0% 0%)"],
+    [0, 0.8],
+    [introClip, fullClip]
   );
 
   const containerHeight = useTransform(
     smoothProgress,
     [0, 0.6, 0.85],
-    ["55vh", "70vh", "100vh"],
+    ["55vh", "70vh", "100vh"]
   );
 
-  const containerBottom = useTransform(
-    smoothProgress,
-    [0, 0.6, 0.85],
-    ["-12%", "-6%", "0%"],
-  );
+  // Shift image down (-5%) so there is space above it for the logo
+  const containerBottom = useTransform(smoothProgress, [0, 1], ["-5%", "0%"]);
+
+  const imgScale = useTransform(smoothProgress, [0, 1], [0.85, 1]);
+  const imgY = useTransform(smoothProgress, [0, 1], ["0%", "0%"]);
 
   /* =========================
-     TYPOGRAPHY — APARTMENTS STYLE
+      PATTERN & LOGO ANIMATION
   ========================= */
+  const patternY = useTransform(smoothProgress, [0, 1], ["0%", "-10%"]);
+  const patternOpacity = useTransform(smoothProgress, [0, 0.5], [1, 0.2]);
 
-  // INTRO REVEAL
-  const introY = introDone ? 0 : 60;
-  const introOpacity = introDone ? 1 : 0;
+  // LOGO ANIMATION
+  const logoY = useTransform(smoothProgress, [0, 0.25], ["0%", "-50%"]);
+  const logoOpacity = useTransform(smoothProgress, [0, 0.2], [1, 0]);
+  const logoScale = useTransform(smoothProgress, [0, 0.25], [1, 0.8]);
 
-  // SCROLL TAKEOVER
-  const subtitleScrollY = useTransform(
-    smoothProgress,
-    [0.2, 0.6, 1],
-    ["0%", "-120%", "-220%"],
-  );
-
-  const titleScrollY = useTransform(
-    smoothProgress,
-    [0.25, 0.7, 1],
-    ["0%", "-60%", "-140%"], // slower than subtitle
-  );
-const subtitleY = useTransform(smoothProgress, [0, 0.4], ["0%", "-100%"]); const subtitleOpacity = useTransform(smoothProgress, [0, 0.3], [1, 0]);
   /* =========================
-     BADGE
+      BADGE
   ========================= */
   const badgeOpacity = useTransform(smoothProgress, [0.3, 0.5], [0, 1]);
   const badgeScale = useTransform(smoothProgress, [0.3, 0.5], [0.85, 1]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] w-full">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
-        {/* Background Ornament */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-secondary">
+
+        {/* 1. SVG PATTERN */}
         <motion.div
-          style={{
-            opacity: useTransform(smoothProgress, [0, 0.5], [0.35, 0.1]),
-          }}
-          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ y: patternY, opacity: patternOpacity }}
+          className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none mix-blend-overlay"
         >
-          <BackgroundFlower />
+          <div className="w-full h-full opacity-60">
+            <IntroPattern />
+          </div>
         </motion.div>
 
-        {/* IMAGE */}
+        {/* 2. LOGO LAYER */}
         <motion.div
-          initial={{ clipPath: initialClip }}
-          animate={{ clipPath: framedClip }}
-          transition={{ duration: 1.3, ease: [0.77, 0, 0.175, 1] }}
+          style={{
+            y: logoY,
+            opacity: logoOpacity,
+            scale: logoScale
+          }}
+          className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+        >
+          <div className="mb-32 md:mb-40 relative">
+            <img
+              src="/assets/images/logo.png"
+              alt="Continental Group"
+              className="w-50 md:w-50 h-auto object-contain opacity-60"
+            />
+          </div>
+        </motion.div>
+
+        {/* 3. IMAGE LAYER */}
+        <motion.div
+          initial={{ clipPath: startClip }}
+          animate={{ clipPath: introClip }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           onAnimationComplete={() => setIntroDone(true)}
           style={{
             clipPath: introDone ? scrollClip : undefined,
             height: containerHeight,
             bottom: containerBottom,
+            y: imgY,
           }}
-          className="absolute w-full z-10 overflow-hidden"
+          className="absolute w-full z-0 overflow-hidden"
         >
-          <img
+          <motion.img
+            style={{ scale: imgScale }}
             src="/assets/images/horizon/horizon-4.png"
             alt="Horizon"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover svg-fix origin-center"
           />
 
           {/* Badge */}
@@ -107,8 +124,8 @@ const subtitleY = useTransform(smoothProgress, [0, 0.4], ["0%", "-100%"]); const
             style={{ opacity: badgeOpacity, scale: badgeScale }}
             className="absolute bottom-16 right-16 z-30"
           >
-            <div className="bg-[#ca8c19]/90 px-8 py-3 rounded-full shadow-2xl">
-              <span className="text-sm font-bold tracking-[0.12em] uppercase text-[#825541]">
+            <div className="bg-gradient-gold px-8 py-3 rounded-full shadow-2xl">
+              <span className="text-sm font-bold tracking-[0.12em] uppercase text-secondary">
                 3D Map
               </span>
             </div>
@@ -116,40 +133,33 @@ const subtitleY = useTransform(smoothProgress, [0, 0.4], ["0%", "-100%"]); const
         </motion.div>
 
         {/* =========================
-            TYPOGRAPHY LAYER
+            4. TYPOGRAPHY LAYER
         ========================= */}
-        {/* <div className="relative z-20 h-full w-full pointer-events-none px-12"> */}
+        <div className="absolute inset-0 z-30 flex flex-row items-center justify-between px-6 pt-[15vh] md:px-12 md:py-24 pointer-events-none">
 
-        <div className="relative z-20 h-full w-full flex flex-col items-center justify-center px-12 pointer-events-none">
+          {/* Left Section */}
           <motion.div
-            style={{ y: subtitleY, opacity: subtitleOpacity }}
-            className="absolute top-[22%] text-[14px] tracking-[0.4em] uppercase text-[#0f395c]/70"
+            style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
+            className="flex flex-col items-start"
           >
-            {" "}
-            Rooted in Heritage. Rising with Vision.{" "}
+            <span className="text-[2vh] md:text-[1.5vw] tracking-[0.2em] font-light text-white uppercase ml-1 mb-2">
+              Driven By
+            </span>
+            <h1 className="text-[12vw] leading-none font-serif tracking-tighter text-gradient-gold py-2 pr-2">
+              VALUES
+            </h1>
           </motion.div>
-          {/* Main Title */}
-          <motion.div
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              y: introDone ? titleScrollY : introY,
-              opacity: introOpacity,
-            }}
-            className="absolute top-[40%] w-full max-w-[1440px] -translate-x-1/2 flex justify-between"
-          >
-            <div>
-              <h1 className="text-[10vw] md:text-[8vw] leading-[0.85] font-light tracking-tight text-[#0f395c]">
-                HERITAGE
-              </h1>
-              <h1 className="text-[10vw] md:text-[8vw] mt-10 leading-[0.85] italic font-serif text-[#0f395c]/80">
-                MEETS
-              </h1>
-            </div>
 
-            <h1 className="text-[10vw] md:text-[8vw] leading-[0.85] font-light tracking-tight text-[#ca8c19]">
-              HORIZON
+          {/* Right Section */}
+          <motion.div
+            style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
+            className="flex flex-col items-end text-right"
+          >
+            <span className="text-[2vh] md:text-[1.5vw] tracking-[0.2em] font-light text-white uppercase mr-1 mb-2">
+              Built On
+            </span>
+            <h1 className="text-[12vw] leading-none font-serif tracking-tighter text-gradient-gold py-2 pr-2">
+              TRUST
             </h1>
           </motion.div>
         </div>

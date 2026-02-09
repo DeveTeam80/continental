@@ -42,7 +42,7 @@ const MapSection: React.FC<MapProps> = ({ progress }) => {
           className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 md:p-16"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-[#ca8c19] rounded-full text-white">
+            <div className="p-3 bg-primary rounded-full text-white">
               <MapPin size={24} />
             </div>
 
@@ -59,7 +59,7 @@ const MapSection: React.FC<MapProps> = ({ progress }) => {
             href="#"
             className="inline-flex items-center gap-2 text-white group"
           >
-            <span className="h-px w-8 bg-[#ca8c19] transition-all group-hover:w-16" />
+            <span className="h-px w-8 bg-primary transition-all group-hover:w-16" />
 
             <span className="uppercase tracking-widest text-sm font-medium">
               Explore 3D Map
@@ -86,7 +86,7 @@ const MapSection: React.FC<MapProps> = ({ progress }) => {
         style={{ opacity: mapOpacity }}
         animate={{ y: [0, 0, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-12 w-24 h-24 border border-[#ca8c19]/20 rounded-full hidden xl:block"
+        className="absolute top-1/4 left-12 w-24 h-24 border border-primary/20 rounded-full hidden xl:block"
       />
     </div>
   );

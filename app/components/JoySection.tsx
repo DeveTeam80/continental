@@ -64,7 +64,7 @@ export default function JoyEditorialSection() {
 
           {/* Editorial Text */}
           <p className="joy-editorial-text clear-right text-3xl leading-relaxed tracking-wide text-[#825541]/80 uppercase">
-            <span className="text-[#ca8c19] font-medium">
+            <span className="text-primary font-medium">
               Life at Continental Horizon is shaped around calm, continuity, and
               connection. Shared spaces and curated amenities are designed to
               feel natural, not crowded, encouraging comfort, privacy, and a
