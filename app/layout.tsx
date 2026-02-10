@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import "./joy.css"; // Assuming joy.css is needed globally or imported elsewhere
+import { stix } from "./fonts";
+import LayoutClient from "./components/LayoutClient";
 
 export const metadata: Metadata = {
   title: "Heritage Horizon",
-  description: "Crafting timeless developments rooted in integrity, legacy, and thoughtful design.",
+  description:
+    "Crafting timeless developments rooted in integrity, legacy, and thoughtful design.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <head>
-        {/* Fonts and styles are now handled in globals.css */}
-      </head>
-      <body>
-        <div id="root">{children}</div>
+      <body className={stix.className}>
+        <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
   );

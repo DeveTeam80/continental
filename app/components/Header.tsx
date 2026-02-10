@@ -1,17 +1,14 @@
+"use client";
+
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Menu } from "lucide-react";
-// 1. Import the font
-import { STIX_Two_Text } from "next/font/google";
 
-// 2. Configure the font
-const stix = STIX_Two_Text({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+interface HeaderProps {
+  onMenuOpen: () => void;
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
   const { scrollY } = useScroll();
 
   const smoothScrollY = useSpring(scrollY, {
@@ -34,18 +31,18 @@ const Header: React.FC = () => {
     >
       {/* Left */}
       <div className="flex items-center gap-3">
-        <button className="bg-gradient-gold text-secondary px-6 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:scale-[1.04] transition-transform duration-500 shadow-lg">
+        <button className="bg-gradient-gold text-secondary px-6 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:scale-[1.04] transition-transform duration-500 shadow-lg" onClick={onMenuOpen}>
           <Menu size={16} />
           MENU
         </button>
 
-        <div className="relative p-[1px] rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
+        <div className="relative p-px rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
           <button className="w-full h-full px-6 py-2.5 rounded-full bg-secondary text-white text-xs font-medium uppercase tracking-wider group-hover:bg-white group-hover:text-secondary transition-colors duration-500">
             SELECT APARTMENT
           </button>
         </div>
 
-        <div className="relative p-[1px] rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
+        <div className="relative p-px rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
           <button className="w-full h-full px-6 py-2.5 rounded-full bg-secondary text-white text-xs font-medium uppercase tracking-wider group-hover:bg-white group-hover:text-secondary transition-colors duration-500">
             VIRTUAL TOUR
           </button>
@@ -55,7 +52,7 @@ const Header: React.FC = () => {
       {/* Logo - Updated Font */}
       <div className="absolute left-1/2 -translate-x-1/2">
         {/* 3. Apply the font class here */}
-        <div className={`${stix.className} text-2xl md:text-3xl tracking-[0.15em] font-normal text-white text-center`}>
+        <div className={`text-2xl md:text-3xl tracking-[0.15em] font-normal text-white text-center`}>
           CONTINENTAL GROUP
         </div>
       </div>
