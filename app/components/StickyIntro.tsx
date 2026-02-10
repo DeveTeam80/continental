@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, Variants } from "framer-motion";
 import { IntroPattern } from "./LogoPattern";
 
 const StickyIntro: React.FC = () => {
@@ -22,30 +22,13 @@ const StickyIntro: React.FC = () => {
   /* =========================
       CURTAIN / IMAGE ANIMATION
   ========================= */
-  // 1. Initial State (Very small, closed curtain)
-  const startClip = "inset(25% 45% 25% 45%)"; // RENAMED from initialClip to startClip
-
-  // 2. Intro State (The "Clipped Image" you want on load)
+  const startClip = "inset(25% 45% 25% 45%)";
   const introClip = "inset(10% 20% 10% 20%)";
-
-  // 3. Full State (Fully open)
   const fullClip = "inset(0% 0% 0% 0%)";
 
-  const scrollClip = useTransform(
-    smoothProgress,
-    [0, 0.8],
-    [introClip, fullClip]
-  );
-
-  const containerHeight = useTransform(
-    smoothProgress,
-    [0, 0.6, 0.85],
-    ["55vh", "70vh", "100vh"]
-  );
-
-  // Shift image down (-5%) so there is space above it for the logo
+  const scrollClip = useTransform(smoothProgress, [0, 0.8], [introClip, fullClip]);
+  const containerHeight = useTransform(smoothProgress, [0, 0.6, 0.85], ["55vh", "70vh", "100vh"]);
   const containerBottom = useTransform(smoothProgress, [0, 1], ["-5%", "0%"]);
-
   const imgScale = useTransform(smoothProgress, [0, 1], [0.85, 1]);
   const imgY = useTransform(smoothProgress, [0, 1], ["0%", "0%"]);
 
@@ -55,10 +38,31 @@ const StickyIntro: React.FC = () => {
   const patternY = useTransform(smoothProgress, [0, 1], ["0%", "-10%"]);
   const patternOpacity = useTransform(smoothProgress, [0, 0.5], [1, 0.2]);
 
-  // LOGO ANIMATION
+  // Scroll Transforms for Logo
   const logoY = useTransform(smoothProgress, [0, 0.25], ["0%", "-50%"]);
   const logoOpacity = useTransform(smoothProgress, [0, 0.2], [1, 0]);
   const logoScale = useTransform(smoothProgress, [0, 0.25], [1, 0.8]);
+
+  /* =========================
+      LOGO REVEAL VARIANT (Inside-Out)
+  ========================= */
+  const revealVariant: Variants = {
+    hidden: {
+      clipPath: "circle(0% at 50% 50%)", // Starts as a tiny dot in center
+      scale: 0.8,
+      opacity: 0,
+    },
+    visible: {
+      clipPath: "circle(150% at 50% 50%)", // Expands circle outward
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1.8,
+        ease: [0.22, 1, 0.36, 1], // Smooth easing
+        delay: 0.2
+      }
+    }
+  };
 
   /* =========================
       BADGE
@@ -80,20 +84,24 @@ const StickyIntro: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* 2. LOGO LAYER */}
+        {/* 2. LOGO LAYER (UPDATED ANIMATION) */}
         <motion.div
           style={{
             y: logoY,
             opacity: logoOpacity,
             scale: logoScale
           }}
-          className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+          className="absolute inset-0  flex items-center justify-center pointer-events-none"
         >
-          <div className="mb-32 md:mb-40 relative">
-            <img
+          {/* Kept your exact positioning classes */}
+          <div className="mt-17 relative opacity-30">
+            <motion.img
+              initial="hidden"
+              animate="visible"
+              variants={revealVariant} // Applies the clip-path animation
               src="/assets/images/logo.png"
               alt="Continental Group"
-              className="w-50 md:w-50 h-auto object-contain opacity-60"
+              className="w-24 md:w-80 h-auto object-contain" // Kept your exact logo classes
             />
           </div>
         </motion.div>
@@ -132,12 +140,8 @@ const StickyIntro: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* =========================
-            4. TYPOGRAPHY LAYER
-        ========================= */}
+        {/* 4. TYPOGRAPHY LAYER */}
         <div className="absolute inset-0 z-30 flex flex-row items-center justify-between px-6 pt-[15vh] md:px-12 md:py-24 pointer-events-none">
-
-          {/* Left Section */}
           <motion.div
             style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
             className="flex flex-col items-start"
@@ -150,7 +154,6 @@ const StickyIntro: React.FC = () => {
             </h1>
           </motion.div>
 
-          {/* Right Section */}
           <motion.div
             style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
             className="flex flex-col items-end text-right"
