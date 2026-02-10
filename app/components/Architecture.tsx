@@ -85,7 +85,7 @@ const ArchitectureSection: React.FC = () => {
             padding: archPadding,
           }}
           className="
-            absolute z-10 bg-secondary origin-bottom box-border
+            absolute z-10 bg-[#fffff] origin-bottom box-border
             shadow-[0_-40px_80px_rgba(0,0,0,0.18)]
           "
         >

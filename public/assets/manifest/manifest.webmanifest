@@ -1,10 +1,10 @@
 {
-    "name"              : "ERA",
-    "short_name"        : "ERA",
-    "description"       : "ЖК Премиум-класса.",
-    "start_url"         : "/",
-    "display"           : "minimal-ui",
-    "orientation"       : "any",
+    "name": "Continental Group",
+    "short_name": "Continental",
+    "description": "The place where life becomes art. Premium Real Estate.",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "orientation": "any",
     "icons": [
         {
             "src": "/assets/manifest/android-chrome-192x192.png",
@@ -20,5 +20,5 @@
         }
     ],
     "theme_color": "#051936",
-    "background_color": "#ffffff"
+    "background_color": "#F8F0E8"
 }

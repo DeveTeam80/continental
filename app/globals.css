@@ -10,26 +10,51 @@
     --color-accent-light: #eec06b;
     /* Gold Light for Gradient */
 
-    --font-decart: Decart, serif;
-    --font-gilroy: Gilroy, sans-serif;
-    --font-serif: Decart, "Playfair Display", serif;
-    --font-sans: Gilroy, Inter, sans-serif;
+    --font-decart: Decart, "Playfair Display", serif;
+    --font-gilroy: Gilroy, Inter, sans-serif;
 
+    /* Gradients */
     --background-image-gradient-gold: linear-gradient(180deg, #eec06b 0%, #ca8c19 100%);
     --background-image-gradient-gold-h: linear-gradient(90deg, #eec06b 0%, #ca8c19 100%);
+
+    /* The Specific "Elegant" Gradient from your reference */
+    --background-image-gradient-art-deco: linear-gradient(180deg, rgb(238, 192, 107) 0%, rgb(202, 140, 25) 100%);
 }
 
+/* --- CUSTOM UTILITIES --- */
+
+/* 1. Standard Gold Gradient Text */
 .text-gradient-gold {
-    background: linear-gradient(180deg, #eec06b 0%, #ca8c19 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-image: var(--background-image-gradient-gold);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 2. NEW: The "Elegant" Art Deco Text Style 
+   Encapsulates the tight tracking, tight leading, and specific gradient */
+.text-art-deco {
+    font-family: var(--font-decart);
+    line-height: 0.85;
+    /* Tight leading (lines touch) */
+    letter-spacing: -0.04em;
+    /* Tight tracking (letters touch) */
+    text-transform: uppercase;
+
+    /* Gradient Logic */
+    background-image: var(--background-image-gradient-art-deco);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 .bg-gradient-gold {
-    background: linear-gradient(90deg, #eec06b 0%, #ca8c19 100%);
+    background-image: var(--background-image-gradient-gold-h);
 }
+
+/* --- FONTS --- */
 
 @font-face {
     font-family: 'Decart';
@@ -56,18 +81,16 @@
     font-display: swap;
 }
 
+/* --- DEFAULTS --- */
+
 :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 5, 25, 54;
-    /* Keeping legacy dark blue as base for now, can update to #0f395c */
-    --background-end-rgb: 5, 25, 54;
 }
 
 body {
     color: rgb(var(--foreground-rgb));
-    background: #0f395c;
-    /* Updated to new secondary color */
-    font-family: 'Gilroy', 'Inter', sans-serif;
+    background: var(--color-secondary);
+    font-family: var(--font-gilroy);
     overflow-x: hidden;
 }
 
@@ -77,20 +100,23 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Decart', 'Playfair Display', serif;
+    font-family: var(--font-decart);
 }
 
-/* Custom Scrollbar from legacy code */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #0f395c;
+    background: var(--color-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0075bb;
-    /* Updated to new primary color */
+    background: var(--color-primary);
     border-radius: 10px;
+}
+
+button {
+    cursor: pointer;
 }
