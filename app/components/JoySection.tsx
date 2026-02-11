@@ -45,7 +45,7 @@ export default function JoyEditorialSection() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative">
           {/* Right Image */}
-          <div className="hidden md:block float-right w-[28%] ml-12 mb-[22rem]">
+          <div className="hidden md:block float-right w-[28%] ml-12 mb-88">
             <img
               src="/assets/images/media/landing/joy/image-2@md.webp"
               alt=""
