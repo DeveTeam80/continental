@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Menu } from "lucide-react";
@@ -52,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
       {/* Logo - Updated Font */}
       <div className="absolute left-1/2 -translate-x-1/2">
         {/* 3. Apply the font class here */}
-        <div className={`text-2xl md:text-3xl tracking-[0.15em] font-normal text-white text-center`}>
+        <div className={`text-2xl md:text-3xl tracking-[0.15em] font-normal text-white text-center title-name`}>
           CONTINENTAL GROUP
         </div>
       </div>

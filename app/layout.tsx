@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { stix } from "./fonts";
 import LayoutClient from "./components/LayoutClient";
 
 export const metadata: Metadata = {
-  title: "Heritage Horizon",
+  title: "Continental Group | Driven By Values",
   description:
     "Crafting timeless developments rooted in integrity, legacy, and thoughtful design.",
 };
@@ -16,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={stix.className}>
+      <body>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

@@ -34,3 +34,18 @@ export const PRINCIPLES: Principle[] = [
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200", 
   },
 ];
+
+export const INTERIOR_SLIDES = [
+  { id: 1, img: "/assets/images/horizon/amenities-gallery/pool-01.jpg" },
+  { id: 2, img: "/assets/images/horizon/amenities-gallery/kids-area-01.jpg" },
+  { id: 3, img: "/assets/images/horizon/amenities-gallery/kids-area-02.jpg" },
+  { id: 4, img: "assets/images/horizon/amenities-gallery/game-01.jpg" },
+  { id: 5, img: "/assets/images/horizon/amenities-gallery/pool-02.jpg" },
+  { id: 6, img: "assets/images/horizon/amenities-gallery/game-02.jpg" },
+  { id: 7, img: "assets/images/horizon/amenities-gallery/game-03.jpg" },
+  { id: 8, img: "assets/images/horizon/amenities-gallery/game-04.jpg" },
+  { id: 9, img: "assets/images/horizon/amenities-gallery/game-05.jpg" },
+  { id: 10, img: "assets/images/horizon/amenities-gallery/gym-01.jpg" },
+  { id: 11, img: "assets/images/horizon/amenities-gallery/gym-02.jpg" },
+  { id: 12, img: "/assets/images/horizon/amenities-gallery/pool-03.jpg" },
+];
