@@ -31,7 +31,7 @@ export default function JoyEditorialSection() {
           className="
     text-[7vw]
     font-serif uppercase leading-none
-    text-[#0f395c] text-right
+    text-secondary text-right
     pointer-events-none
   "
         >

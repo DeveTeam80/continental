@@ -103,24 +103,8 @@ const ArchitectureSection: React.FC = () => {
               alt="Art Deco Architecture"
               className="w-full h-full object-cover"
             />
-
-            {/* Optional subtle architectural grid */}
-            {/* <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute left-1/4 h-full w-px bg-black" />
-              <div className="absolute left-1/2 h-full w-px bg-black" />
-              <div className="absolute left-3/4 h-full w-px bg-black" />
-            </div> */}
           </motion.div>
         </motion.div>
-
-        {/* ───── Structural Grid (Very Subtle) ───── */}
-        {/* <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.035]">
-          <div className="w-full h-full grid grid-cols-12 grid-rows-6">
-            {Array.from({ length: 72 }).map((_, i) => (
-              <div key={i} className="border-[0.5px] border-black" />
-            ))}
-          </div>
-        </div> */}
 
       </div>
     </motion.div>

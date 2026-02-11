@@ -108,9 +108,9 @@ export const IntroPattern = () => {
                     y2="290.5"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop offset="0" stopColor="#CF8F7D" stopOpacity="0" />
-                    <stop offset="0.5" stopColor="#CF8F7D" />
-                    <stop offset="1" stopColor="#CF8F7D" stopOpacity="0" />
+                    <stop offset="0" stopColor="#0075bb" stopOpacity="0" />
+                    <stop offset="0.5" stopColor="#0075bb" />
+                    <stop offset="1" stopColor="#0075bb" stopOpacity="0" />
                 </linearGradient>
 
                 {/* Path Gradient 2 (Dark/Navy - creates the depth) */}
