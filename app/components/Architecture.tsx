@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const ArchitectureSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null); // Rebuild trigger
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -16,95 +16,93 @@ const ArchitectureSection: React.FC = () => {
   });
 
   /* ───────── Intro Text ───────── */
-  const titleOpacity = useTransform(smoothProgress, [0, 0.2, 0.35], [0, 1, 0]);
-  const titleY = useTransform(smoothProgress, [0, 0.35], [50, -100]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 1, 0]);
+  const titleY = useTransform(smoothProgress, [0, 0.3], [50, -80]);
 
-  const descOpacity = useTransform(smoothProgress, [0.05, 0.25, 0.4], [0, 1, 0]);
-  const descY = useTransform(smoothProgress, [0.05, 0.4], [30, -50]);
+  const descOpacity = useTransform(smoothProgress, [0.05, 0.2, 0.35], [0, 1, 0]);
+  const descY = useTransform(smoothProgress, [0.05, 0.35], [30, -50]);
 
-  /* ───────── Arch Geometry ───────── */
-  const archY = useTransform(smoothProgress, [0.2, 0.5, 0.8], ['85vh', '20vh', '0vh']);
-  const archWidth = useTransform(smoothProgress, [0.4, 0.8], ['50vw', '100vw']);
-  const archHeight = useTransform(smoothProgress, [0.4, 0.8], ['65vh', '100vh']);
+  /* ───────── Full bg overlay ,  hides image until arch opens ───────── */
+  // Stays solid from 0→0.25, then fades as arch expands 0.25→0.55
+  const bgOverlayOpacity = useTransform(smoothProgress, [0, 0.25, 0.55], [1, 1, 0]);
 
-  // SAME radius for outer frame AND inner image
-  const archRadius = useTransform(
+  /* ───────── Window ───────── */
+  const windowWidth = useTransform(smoothProgress, [0.3, 0.75], ['35vw', '100vw']);
+  const windowHeight = useTransform(smoothProgress, [0.3, 0.75], ['50.75vh', '100vh']);
+  const windowRadius = useTransform(
     smoothProgress,
-    [0.4, 0.8, 0.9],
-    ['1000px 1000px 0 0', '500px 500px 0 0', '0px 0px 0 0']
+    [0.3, 0.72, 0.85],
+    ['9000px 9000px 0 0', '500px 500px 0 0', '0px 0px 0 0']
   );
+  const windowY = useTransform(smoothProgress, [0.1, 0.45], ['55vh', '0vh']);
 
-  /* ───────── Thick White Mat ───────── */
-  const archPadding = useTransform(
-    smoothProgress,
-    [0.35, 0.75],
-    ['8rem', '0rem']
-  );
-
-  /* Image motion */
-  const imageScale = useTransform(smoothProgress, [0.35, 1], [1.05, 1]);
-  const imageInsideY = useTransform(smoothProgress, [0.35, 1], ['6%', '0%']);
+  /* ───────── Image ───────── */
+  const imageScale = useTransform(smoothProgress, [0.3, 1], [1.15, 1]);
 
   return (
     <motion.div
       ref={containerRef}
-      className="relative h-[450vh] w-full bg-secondary"
+      className="relative h-[450vh] w-full"
     >
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
 
-        {/* ───── Intro Text Layer ───── */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-6">
-          <motion.div style={{ opacity: titleOpacity, y: titleY }} className="text-center mb-12">
-            <h2 className="text-[8vw] font-serif italic leading-none text-gradient-gold">
+        {/* ── z-0: Full-bleed image ── */}
+        <motion.div
+          style={{ scale: imageScale }}
+          className="absolute inset-0 w-full h-full origin-center z-0"
+        >
+          <img
+            src="/assets/images/horizon/horizon-8.png"
+            alt="Art Deco Architecture"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
+        {/* ── z-10: Solid bg overlay ,  gives text a clean backdrop,
+            fades away as the arch window expands ── */}
+        <motion.div
+          style={{ opacity: bgOverlayOpacity }}
+          className="absolute inset-0 w-full h-full z-10 bg-secondary"
+        />
+
+        {/* ── z-40: Intro text (Above mask) ── */}
+        <div className="absolute inset-0 z-40 flex flex-col items-center justify-center pointer-events-none px-6">
+          <motion.div
+            style={{ opacity: titleOpacity, y: titleY }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-[8vw] font-serif leading-none text-gradient-gold">
               Not Slogans. <br />Real Differentiators.
             </h2>
             <div className="w-24 h-px bg-gradient-gold mx-auto mt-6" />
           </motion.div>
+
           <motion.div
-            // initial={{ opacity: 0, y: 50 }}
             style={{ opacity: descOpacity, y: descY }}
-            // whileInView={{ opacity: 1, y: 0 }}
-            // transition={{ duration: 1, delay: 0.2 }}
             className="mt-6 max-w-7xl mx-auto text-center"
           >
-            <div className="max-w-full mx-auto text-center px-6">
-              <p className="text-3xl leading-relaxed tracking-wide text-white/90 uppercase">
-                Self-owned land parcels. Proven delivery track record. Premium Mivan construction technology. Low-density planning. We don’t chase scale. We protect reputation.
-              </p>
-            </div>
+            <p className="text-3xl leading-relaxed tracking-wide text-white/90 uppercase">
+              Self-owned land parcels. Proven delivery track record. Premium Mivan
+              construction technology. Low-density planning. We don't chase scale.
+              We protect reputation.
+            </p>
           </motion.div>
         </div>
 
-        {/* ───── Expanding Semi-Circle Frame ───── */}
+        {/* ── z-30: Arch window with box-shadow mat ──
+            Shadow color matches bg-secondary exactly so the 
+            transition from overlay fade → shadow mat is seamless ── */}
         <motion.div
           style={{
-            y: archY,
-            width: archWidth,
-            height: archHeight,
-            borderRadius: archRadius,
-            padding: archPadding,
+            width: windowWidth,
+            height: windowHeight,
+            borderRadius: windowRadius,
+            y: windowY,
+            // MUST match --color-secondary: #0f395c
+            boxShadow: '0 0 0 2000px #0f395c',
           }}
-          className="
-            absolute z-10 bg-[#fffff] origin-bottom box-border
-            shadow-[0_-40px_80px_rgba(0,0,0,0.18)]
-          "
-        >
-          {/* INNER IMAGE — SAME SEMI-CIRCLE */}
-          <motion.div
-            style={{
-              scale: imageScale,
-              y: imageInsideY,
-              borderRadius: archRadius, // 👈 CRITICAL FIX
-            }}
-            className="w-full h-full overflow-hidden relative"
-          >
-            <img
-              src="/assets/images/horizon/horizon-8.png"
-              alt="Art Deco Architecture"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </motion.div>
+          className="absolute z-30 left-1/2 -translate-x-1/2 bottom-0 overflow-visible"
+        />
 
       </div>
     </motion.div>

@@ -121,7 +121,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
           <div className="relative z-10 h-full px-10 md:px-16 py-10 flex flex-col justify-between text-[#e6e1d8]">
             {/* Top Bar */}
             <div className="flex items-start justify-between">
-              {/* LEFT SIDE — Close + Buttons */}
+              {/* LEFT SIDE ,  Close + Buttons */}
               <div className="flex items-center gap-6">
                 <button
                   className="bg-gradient-gold text-secondary px-6 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:scale-[1.04] transition-transform duration-500 shadow-lg"
@@ -136,7 +136,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                   </button>
                 </div>
               </div>{" "}
-              {/* RIGHT SIDE — Logo */}
+              {/* RIGHT SIDE ,  Logo */}
               <div className="hidden lg:flex items-center justify-center -mt-12.5">
                 <img
                   src="/assets/images/continental-logo-01.png"
@@ -159,7 +159,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                       key={item.title}
                       onMouseEnter={() => setHoveredIndex(i)}
                       onMouseLeave={() => setHoveredIndex(null)}
-                      className={`block text-left font-serif uppercase tracking-wide leading-tight
+                      className={`block text-left uppercase tracking-wide leading-tight
                         text-[30px] md:text-[34px] lg:text-[38px] py-0.75
                         transition-colors duration-300
                         ${isActive ? "text-gradient-gold" : "text-white/35"}`}

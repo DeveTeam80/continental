@@ -128,7 +128,7 @@ const StickyIntro: React.FC = () => {
           />
 
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             style={{ opacity: badgeOpacity, scale: badgeScale }}
             className="absolute bottom-16 right-16 z-30"
           >
@@ -137,13 +137,15 @@ const StickyIntro: React.FC = () => {
                 3D Map
               </span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
-        {/* 4. TYPOGRAPHY LAYER */}
-        <div className="absolute inset-0 z-30 flex flex-row items-center justify-between px-6 pt-[15vh] md:px-12 md:py-24 pointer-events-none">
+        <motion.div
+          style={{ y: useTransform(smoothProgress, [0, 1], [0, -50]) }}
+          className="absolute inset-0 z-30 flex flex-row items-center justify-between px-6 pt-[15vh] md:px-12 md:py-24 pointer-events-none"
+        >
           <motion.div
-            style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
+            style={{ y: useTransform(smoothProgress, [0, 1], [0, -150]) }}
             className="flex flex-col items-start"
           >
             <span className="text-[2vh] md:text-[1.5vw] tracking-[0.2em] font-light text-white uppercase ml-1 mb-2">
@@ -155,7 +157,7 @@ const StickyIntro: React.FC = () => {
           </motion.div>
 
           <motion.div
-            style={{ y: useTransform(smoothProgress, [0, 1], [0, -100]) }}
+            style={{ y: useTransform(smoothProgress, [0, 1], [0, -150]) }}
             className="flex flex-col items-end text-right"
           >
             <span className="text-[2vh] md:text-[1.5vw] tracking-[0.2em] font-light text-white uppercase mr-1 mb-2">
@@ -165,7 +167,7 @@ const StickyIntro: React.FC = () => {
               TRUST
             </h1>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Editorial Lines */}
         <div className="absolute left-1/2 top-0 h-full w-px bg-[#825541]/10 -translate-x-1/2 z-10" />

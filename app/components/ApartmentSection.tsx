@@ -16,7 +16,7 @@ const PROJECTS = [
     id: 1,
     title: "Continental Heights",
     description:
-      "A landmark that redefined living in South Mumbai. Continental Heights is more than a residential address—it is a community built on trust, familiarity, and enduring values. Delivered as promised, it stands today as lived proof of our commitment to precision, care, and quality.",
+      "A landmark that redefined living in South Mumbai. Continental Heights is more than a residential address, it is a community built on trust, familiarity, and enduring values. Delivered as promised, it stands today as lived proof of our commitment to precision, care, and quality.",
     image: "assets/images/horizon/about-ch-01.jpg",
     link: "/continental-heights",
   },
@@ -194,7 +194,7 @@ const PlansSection: React.FC = () => {
         <div className="relative z-10 h-full flex flex-col justify-center px-6 max-w-7xl mx-auto">
           <motion.h2
             style={{ x: titleX }}
-            className="text-[5vw] font-serif uppercase leading-none text-right text-secondary pointer-events-none"
+            className="text-[10vw] font-serif uppercase leading-none text-right text-gradient-gold pointer-events-none"
           >
             Our <br /> Projects
           </motion.h2>

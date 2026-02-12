@@ -2,7 +2,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import BackgroundFlower from "./BackgroundFlower";
-import GoldRibbon from "./GoldRibbon";
+import GoldRibbon from "./GoldRibbonV2";
+import ParallaxImage from "./ParallaxImage";
 
 const ArtDecoSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -60,13 +61,15 @@ const ArtDecoSection: React.FC = () => {
           className="max-w-2xl mx-auto relative group will-change-transform"
         >
           <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl">
-            <img
+            <ParallaxImage
               src="/assets/images/horizon/horizons-5.png"
               alt="Art Deco Luxury"
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              className="w-full h-full"
+              imgClassName="transition-transform duration-1000 group-hover:scale-105"
+              speed={0.2}
             />
           </div>
-          <div className="absolute inset-0 pointer-events-none border border-white/10 m-4" />
+          <div className="absolute inset-0 pointer-events-none m-4" />
         </motion.div>
 
         {/* Bottom Centered Text */}

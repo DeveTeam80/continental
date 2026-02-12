@@ -174,6 +174,22 @@ const LifeSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </motion.div>
+            {/* Soft fade at bottom */}
+            <div className="absolute inset-0 pointer-events-none" />
+            {/* Text Overlay */}
+            <div className="absolute inset-0 flex items-center justify-end p-12 md:p-24 pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="max-w-md text-right flex flex-col items-end"
+              >
+                <div className="w-16 h-px bg-primary mb-8" />
+                <p className="text-lg md:text-xl font-light text-white/80 leading-relaxed italic">
+                  Through vine-covered arches you can get inside these green
+                  walls, into the heart of ERA ,  the central park.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

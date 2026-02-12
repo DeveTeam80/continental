@@ -52,13 +52,13 @@ const NewEraSection: React.FC = () => {
         {/* Eyebrow */}
         <motion.p
           style={{ opacity: textOpacity, y: textY }}
-          className="text-secondary text-md tracking-[0.4em] uppercase mb-8"
+          className="text-white text-md tracking-[0.4em] uppercase mb-8"
         >
           Calm. Confident. Considered.
         </motion.p>
 
         {/* Main Title */}
-        <h2 className="text-6xl md:text-8xl font-serif text-white mb-12">
+        <h2 className="text-6xl md:text-8xl font-serif text-gradient-gold mb-12">
           We Invite <br />
           <span className="italic">Conversations</span>
         </h2>
@@ -71,7 +71,7 @@ const NewEraSection: React.FC = () => {
             relative
             w-64 h-64
             rounded-full
-            bg-primary
+            bg-gradient-gold
             text-white
             flex flex-col items-center justify-center
             shadow-xl
@@ -79,8 +79,8 @@ const NewEraSection: React.FC = () => {
             overflow-hidden
           "
         >
-          <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <span className="relative z-10 text-center px-4">Request a <br />Private Preview</span>
+          <div className="absolute inset-0 bg-gradient-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <span className="relative z-10 text-center px-4 ">Request a <br />Private Preview</span>
         </motion.button>
       </div>
     </section>

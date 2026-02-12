@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import ParallaxImage from "./ParallaxImage";
 
 const ArchitectureDetailsSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen text-primary pt-12 pb-24 overflow-hidden">
+    <section className="relative z-10 bg-white min-h-screen text-primary pt-12 pb-24 overflow-hidden">
       {/* Art Deco Flower SVG Pattern Background */}
-      <div className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none flex justify-center items-center">
+      {/* <div className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none flex justify-center items-center">
         <svg
           width="842"
           height="1151"
@@ -21,7 +22,7 @@ const ArchitectureDetailsSection: React.FC = () => {
             strokeWidth="1"
           />
         </svg>
-      </div>
+      </div> */}
 
       <div className="container mx-auto pl-6 relative z-10 max-w-full">
         <motion.div
@@ -30,21 +31,19 @@ const ArchitectureDetailsSection: React.FC = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-12 max-w-7xl mx-auto text-center"
         >
-          <div className="max-w-full mx-auto text-center px-6">
-            <p className="text-3xl leading-relaxed tracking-wide text-primary uppercase">
+          <div className="max-w-full mx-auto text-center px-10 py-20">
+            <p className="text-[2.5vw] leading-relaxed tracking-wide text-secondary uppercase">
               This vision is carried seamlessly indoors through interiors by
               Saylas Interiors, where spatial planning, material choices, and
               subtle detailing come together to create homes that feel calm,
-              intuitive, and deeply personal. Together, architecture and
-              interiors form a living experience that prioritises comfort,
-              cultural sensibility, and everyday elegance over passing trends.
+              grounded, and effortlessly sophisticated.
             </p>
           </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           {/* Left Column: Quote and Interview */}
-          <div className="lg:col-span-5 flex flex-col gap-[25rem]">
+          <div className="lg:col-span-5 flex flex-col gap-[6rem]">
             {/* The Architect's Quote */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -52,7 +51,7 @@ const ArchitectureDetailsSection: React.FC = () => {
               transition={{ duration: 1, delay: 0.2 }}
               className="border-l border-primary pl-8"
             >
-              <blockquote className="text-xl md:text-2xl font-serif text-primary leading-relaxed mb-8">
+              <blockquote className="text-xl md:text-xl font-serif text-secondary leading-relaxed mb-8">
                 Behind the elegance lies advanced construction intelligence.
                 MWAN technology brings greater precision, enhanced safety, and
                 long-term structural resilience, resulting in cleaner layouts,
@@ -80,11 +79,13 @@ const ArchitectureDetailsSection: React.FC = () => {
               <p className="text-[10px] font-bold tracking-[0.4em] uppercase text-secondary mb-6">
                 ARCHITECTS INTERVIEW
               </p>
-              <div className="relative aspect-video rounded-sm overflow-hidden shadow-xl">
-                <img
+              <div className="relative aspect-video rounded-sm overflow-hidden shadow-xl max-w-sm">
+                <ParallaxImage
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop"
                   alt="Architects"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full"
+                  imgClassName="grayscale group-hover:grayscale-0 transition-all duration-700"
+                  speed={0.08}
                 />
                 <div className="absolute inset-0 bg-secondary/30 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full border border-white/40 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 group-hover:bg-primary group-hover:border-primary transition-all duration-500">
@@ -105,19 +106,20 @@ const ArchitectureDetailsSection: React.FC = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="relative aspect-square md:aspect-[4/5] overflow-hidden rounded-sm shadow-2xl"
+              className="relative aspect-[4/3] md:aspect-[4/3] overflow-hidden rounded-sm shadow-2xl"
             >
-              <img
+              <ParallaxImage
                 src="assets/images/horizon/horizon-3.png"
                 alt="Architecture Close Up"
-                className="w-full h-full object-cover"
+                className="w-full h-full"
+                speed={0.3}
               />
 
               {/* Vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent pointer-events-none" />
             </motion.div>
 
-            {/* ARCHITECTURE CTA — LEFT SIDE */}
+            {/* ARCHITECTURE CTA ,  LEFT SIDE */}
             <motion.button
               initial={{ opacity: 0, scale: 0.85 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -129,7 +131,7 @@ const ArchitectureDetailsSection: React.FC = () => {
       -translate-y-1/2
       w-40 h-40
       rounded-full
-      bg-primary
+      bg-gradient-gold
       text-white
       flex items-center justify-center
       shadow-2xl
