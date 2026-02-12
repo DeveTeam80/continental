@@ -13,9 +13,9 @@ export const PRINCIPLES: Principle[] = [
     id: 2,
     title: "CONTINENTAL HEIGHTS, THE PROOF",
     description:
-      "We did not simply construct a tower; we elevated an entire neighborhood. Continental Heights stands today as a promise fulfilled — 100% sold, 100% handover complete. A landmark that reflects trust delivered, not just ambition declared.",
+      "We did not simply construct a tower; we elevated an entire neighborhood. Continental Heights stands today as a promise fulfilled ,  100% sold, 100% handover complete. A landmark that reflects trust delivered, not just ambition declared.",
     imageUrl:
-      "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&q=80&w=1200", 
+      "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&q=80&w=1200",
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const PRINCIPLES: Principle[] = [
     description:
       "At the center of faith, culture, and connection lies Mazgaon. From Jamali Masjid to Raudat Tahera and Saifee Hospital, everything that anchors life is minutes away, making spiritual solace not a journey, but a daily rhythm.",
     imageUrl:
-      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200", 
+      "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200",
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const PRINCIPLES: Principle[] = [
     description:
       "Precision is our signature. The MWAN Aluminum Formwork System allows us to build with the discipline of fine watchmaking,  delivering speed, safety, and flawless structural integrity so your home endures for generations.",
     imageUrl:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200", 
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200",
   },
 ];
 

@@ -225,7 +225,7 @@ const LifeSection: React.FC = () => {
                 <div className="w-16 h-px bg-primary mb-8" />
                 <p className="text-lg md:text-xl font-light text-white/80 leading-relaxed italic">
                   Through vine-covered arches you can get inside these green
-                  walls, into the heart of ERA — the central park.
+                  walls, into the heart of ERA ,  the central park.
                 </p>
               </motion.div>
             </div>
