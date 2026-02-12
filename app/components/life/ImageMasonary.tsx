@@ -1,16 +1,18 @@
-
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const ImageMasonary: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
-  const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  const smoothScroll = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+  });
 
   // Parallax offsets for the various images in the grid
   const y1 = useTransform(smoothScroll, [0, 1], ["0%", "-15%"]);
@@ -26,7 +28,10 @@ const ImageMasonary: React.FC = () => {
       <div className="container-h px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-8">
-            <motion.div style={{ y: y1 }} className="aspect-4/5 md:aspect-square overflow-hidden rounded-sm shadow-xl">
+            <motion.div
+              style={{ y: y1 }}
+              className="aspect-4/5 md:aspect-square overflow-hidden rounded-sm shadow-xl"
+            >
               <img
                 src="/assets/images/horizon/amenities-gallery/kids-area-01.jpg"
                 alt="English Lawn Leisure"
@@ -37,7 +42,10 @@ const ImageMasonary: React.FC = () => {
 
           <div className="md:col-span-3 md:col-start-10 mt-12 md:mt-24">
             <div className="flex flex-col gap-12">
-              <motion.div style={{ y: y2 }} className="aspect-4/5 overflow-hidden rounded-sm shadow-lg">
+              <motion.div
+                style={{ y: y2 }}
+                className="aspect-4/5 overflow-hidden rounded-sm shadow-lg"
+              >
                 <img
                   src="/assets/images/horizon/amenities-gallery/game-05.jpg"
                   alt="Yoga Session"
@@ -47,10 +55,13 @@ const ImageMasonary: React.FC = () => {
               <motion.p
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-xs md:text-sm font-light leading-relaxed text-primary/70 uppercase tracking-widest"
-              >
-                The perfectly cut English lawn in front of the pavilion beckons to bask in the
-                July sun. Or do a dozen sun salutations at a yoga class.
+            className="text-primary text-base font-light leading-relaxed max-w-sm">
+              
+                At Continental, every amenity is designed around balance, spaces
+                to restore, spaces to gather, and spaces to grow.Life flows
+                effortlessly. It is a setting where wellbeing feels natural,
+                families feel connected, and community forms without ever
+                feeling forced.
               </motion.p>
             </div>
           </div>
@@ -61,16 +72,17 @@ const ImageMasonary: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-serif text-primary leading-[1.1] tracking-tight"
+              className="text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.1] tracking-tight"
             >
-              You won't have to rush and waste time in traffic jams to spend the evening at dinner
-              with family or friends.
+              Thoughtfully designed spaces that allow you to unwind, gather,
+              celebrate, and reconnect without stepping beyond your own
+              community.
             </motion.p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-          {/* LEFT IMAGE ,  occupies first 4 columns */}
+          {/* LEFT IMAGE — occupies first 4 columns */}
           <div className="hidden md:block md:col-span-4 relative">
             <motion.div
               style={{ y: y2 }} // 👈 use a subtle parallax value
@@ -91,7 +103,7 @@ const ImageMasonary: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* RIGHT MAIN BLOCK ,  existing content */}
+          {/* RIGHT MAIN BLOCK — existing content */}
           <div className="md:col-span-8 relative">
             <div className="relative">
               {/* MAIN IMAGE */}
@@ -133,19 +145,18 @@ const ImageMasonary: React.FC = () => {
         </div>
 
         {/* TEXT */}
-        <div className="mt-12 md:mt-24">
+        {/* <div className="mt-12 md:mt-24">
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-xl font-light leading-relaxed text-primary uppercase tracking-widest"
           >
-            A cozy cafe, a cup of aromatic coffee and your favorite dish is just a
-            short walk away. The atmosphere of peace and tranquility will allow
-            you to put time on pause and completely dissolve in aromas, tastes and
-            long conversations with loved ones.
+            A cozy cafe, a cup of aromatic coffee and your favorite dish is just
+            a short walk away. The atmosphere of peace and tranquility will
+            allow you to put time on pause and completely dissolve in aromas,
+            tastes and long conversations with loved ones.
           </motion.p>
-        </div>
-
+        </div> */}
       </div>
 
       {/* Background Architectural Accent Lines */}
