@@ -62,7 +62,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ title, backgroundImage }) => {
               ease: [0.4, 0, 0.2, 1],
             }}
             style={{ y: titleY }}
-            className="text-[12vw] font-serif uppercase leading-none text-center opacity-100 pointer-events-none"
+            className="text-[12vw] uppercase leading-none text-center opacity-100 pointer-events-none"
           >
             {title}
           </motion.h2>

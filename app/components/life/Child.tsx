@@ -113,7 +113,7 @@ const ChildhoodSection: React.FC = () => {
           </div>
         </div>
       </div>
-    <InteriorsSection
+      <InteriorsSection
         slides={INTERIOR_SLIDES}
         autoplayDelay={5000}
         slideWidthVW={60}

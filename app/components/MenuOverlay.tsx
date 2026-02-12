@@ -20,13 +20,13 @@ const ITEMS = [
   },
   {
     title: "CONTINENTAL HEIGHTS",
-    href: "/infrastructure",
+    href: "/heights",
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000",
   },
   {
     title: "CONTINENTAL HORIZON",
-    href: "/improvement",
+    href: "/horizon",
     image:
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000",
   },
@@ -63,7 +63,6 @@ const SUB_LINKS = [
 ];
 
 export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
-  
   const pathname = usePathname();
   const router = useRouter();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -124,7 +123,10 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
             <div className="flex items-start justify-between">
               {/* LEFT SIDE — Close + Buttons */}
               <div className="flex items-center gap-6">
-                <button className="bg-gradient-gold text-secondary px-6 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:scale-[1.04] transition-transform duration-500 shadow-lg" onClick={onClose}>
+                <button
+                  className="bg-gradient-gold text-secondary px-6 py-2.5 rounded-full flex items-center gap-2 text-xs font-semibold uppercase tracking-wider hover:scale-[1.04] transition-transform duration-500 shadow-lg"
+                  onClick={onClose}
+                >
                   <X size={16} />
                 </button>
 
@@ -161,11 +163,10 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                         text-[30px] md:text-[34px] lg:text-[38px] py-0.75
                         transition-colors duration-300
                         ${isActive ? "text-gradient-gold" : "text-white/35"}`}
-                        onClick={() => {
-  router.push(item.href);
-  onClose();
-}}
-
+                      onClick={() => {
+                        router.push(item.href);
+                        onClose();
+                      }}
                     >
                       {item.title}
                     </button>

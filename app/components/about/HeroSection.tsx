@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[200vh] w-full overflow-hidden flex flex-col items-center bg-secondary"
+      className="relative h-[146vh] w-full overflow-hidden flex flex-col items-center bg-secondary"
     >
       <div className="sticky top-20 h-screen w-full overflow-hidden bg-secondary min-h-[180vh]">
         {/* Background Pattern */}
@@ -37,11 +37,11 @@ const HeroSection: React.FC = () => {
           <BackgroundFlower />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 w-full max-w-7xl">
+        <div className="container mx-auto mt-25 relative z-10 w-full max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Text Content */}
             <motion.div style={{ y: textY }} className="lg:col-span-12 -z-20">
-              <h1 className="text-[9vw] leading-none font-serif tracking-tighter text-gradient-gold py-2 text-center">
+              <h1 className="text-[6vw] leading-none font-serif tracking-tighter text-gradient-gold py-2 text-center">
                 CONTINENTAL GROUP
               </h1>
             </motion.div>
@@ -49,14 +49,14 @@ const HeroSection: React.FC = () => {
 
           {/* Center Image */}
           <motion.div
-            style={{ y: imageY, marginTop: "-20px" }}
+            style={{ y: imageY, marginTop: "-50px" }}
             className="max-w-2xl mx-auto relative group"
           >
-            <div className="aspect-3/4 overflow-hidden rounded-sm shadow-2xl">
+            <div className="aspect-3/4 overflow-hidden">
               <img
-                src="/assets/images/horizon/horizons-5.png"
+                src="/assets/images/horizon/heights.png"
                 alt="Art Deco Luxury"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
 
@@ -64,7 +64,7 @@ const HeroSection: React.FC = () => {
           </motion.div>
 
           {/* Bottom Centered Text */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -77,11 +77,8 @@ const HeroSection: React.FC = () => {
                 family-oriented, and built on trust.
               </p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
-
-        {/* Vertical Divider */}
-        <div className="absolute left-1/2 bottom-0 w-px h-64 bg-linear-to-t from-primary/30 to-transparent -translate-x-1/2" />
       </div>
     </section>
   );
