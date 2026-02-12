@@ -1,139 +1,142 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0075bb;
-  /* Bright Blue */
-  --color-secondary: #0f395c;
-  /* Dark Blue - Main BG */
-  --color-accent: #ca8c19;
-  /* Gold - Highlights */
-  --color-accent-light: #eec06b;
-  /* Gold Light for Gradient */
+    --color-primary: #0075bb;
+    /* Bright Blue */
+    --color-secondary: #0f395c;
+    /* Dark Blue - Main BG */
+    --color-accent: #ca8c19;
+    /* Gold - Highlights */
+    --color-accent-light: #eec06b;
+    /* Gold Light for Gradient */
 
-  --font-decart: Decart, "Playfair Display", serif;
-  --font-gilroy: Gilroy, Inter, sans-serif;
+    --font-decart: Decart, "Playfair Display", serif;
+    --font-gilroy: Gilroy, Inter, sans-serif;
 
-  /* Gradients */
-  --background-image-gradient-gold: linear-gradient(
-    180deg,
-    #eec06b 0%,
-    #ca8c19 100%
-  );
-  --background-image-gradient-gold-h: linear-gradient(
-    90deg,
-    #eec06b 0%,
-    #ca8c19 100%
-  );
+    /* Gradients */
+    --background-image-gradient-gold: linear-gradient(180deg,
+            #eec06b 0%,
+            #ca8c19 100%);
+    --background-image-gradient-gold-h: linear-gradient(90deg,
+            #eec06b 0%,
+            #ca8c19 100%);
 
-  /* The Specific "Elegant" Gradient from your reference */
-  --background-image-gradient-art-deco: linear-gradient(
-    180deg,
-    rgb(238, 192, 107) 0%,
-    rgb(202, 140, 25) 100%
-  );
+    /* The Specific "Elegant" Gradient from your reference */
+    --background-image-gradient-art-deco: linear-gradient(180deg,
+            rgb(238, 192, 107) 0%,
+            rgb(202, 140, 25) 100%);
 }
 
 /* --- CUSTOM UTILITIES --- */
 
 /* 1. Standard Gold Gradient Text */
 .text-gradient-gold {
-  background-image: var(--background-image-gradient-gold);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+    background-image: var(--background-image-gradient-gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 /* 2. NEW: The "Elegant" Art Deco Text Style 
    Encapsulates the tight tracking, tight leading, and specific gradient */
 .text-art-deco {
-  font-family: var(--font-decart);
-  line-height: 0.85;
-  /* Tight leading (lines touch) */
-  letter-spacing: -0.04em;
-  /* Tight tracking (letters touch) */
-  text-transform: uppercase;
+    font-family: var(--font-decart);
+    line-height: 0.85;
+    /* Tight leading (lines touch) */
+    letter-spacing: -0.04em;
+    /* Tight tracking (letters touch) */
+    text-transform: uppercase;
 
-  /* Gradient Logic */
-  background-image: var(--background-image-gradient-art-deco);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+    /* Gradient Logic */
+    background-image: var(--background-image-gradient-art-deco);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 }
 
 .bg-gradient-gold {
-  background-image: var(--background-image-gradient-gold-h);
+    background-image: var(--background-image-gradient-gold-h);
 }
 
 /* --- FONTS --- */
 
 @font-face {
-  font-family: "Decart";
-  src:
-    url("/fonts/Decart-Regular.woff2") format("woff2"),
-    url("/fonts/Decart-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Decart";
+    src:
+        url("/fonts/Decart-Regular.woff2") format("woff2"),
+        url("/fonts/Decart-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Gilroy";
+    src: url("/fonts/Gilroy-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("/fonts/Gilroy-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Gilroy";
+    src: url("/fonts/Gilroy-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* --- DEFAULTS --- */
 
 :root {
-  --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 255, 255, 255;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: var(--color-secondary);
-  /* font-family: var(--font-gilroy); */
-  overflow-x: hidden;
+    color: rgb(var(--foreground-rgb));
+    background: var(--color-secondary);
+    /* font-family: var(--font-gilroy); */
+    overflow-x: hidden;
 }
 
-/* h1,
+p,
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
     font-family: var(--font-decart);
-} */
+}
 
 .title-name {
-  font-family: var(--font-gilroy);
+    font-family: var(--font-gilroy);
+}
+
+.gilroy-font {
+    font-family: var(--font-gilroy);
+}
+
+button {
+    font-family: var(--font-gilroy) !important;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-secondary);
+    background: var(--color-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
+    background: var(--color-primary);
+    border-radius: 10px;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
