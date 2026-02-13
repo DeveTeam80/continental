@@ -23,7 +23,7 @@ const NewEraSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-white"
+      className="relative overflow-hidden bg-white"
     >
       {/* =========================
           BACKGROUND IMAGE
@@ -60,7 +60,7 @@ const NewEraSection: React.FC = () => {
         {/* Main Title */}
         <h2 className="text-6xl md:text-8xl font-serif text-gradient-gold mb-12">
           We Invite <br />
-          <span className="italic">Conversations</span>
+          <span>Conversations</span>
         </h2>
 
         {/* Button */}

@@ -80,7 +80,7 @@ const StickyIntro: React.FC = () => {
           className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none mix-blend-overlay"
         >
           <div className="w-full h-full opacity-60">
-            <IntroPattern />
+            <IntroPattern delay={3.5} />
           </div>
         </motion.div>
 

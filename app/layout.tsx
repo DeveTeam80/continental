@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Crafting timeless developments rooted in integrity, legacy, and thoughtful design.",
 };
 
+import Preloader from "./components/Preloader";
+
 export default function RootLayout({
   children,
 }: {
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Preloader />
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>
