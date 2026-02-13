@@ -2,7 +2,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, ChevronRight, Mail } from "lucide-react";
-import SimpleMap from "../components/Map";
+import Script from "next/script";
+import dynamic from 'next/dynamic';
+
+const SimpleMap = dynamic(() => import('../components/Map'), {
+  ssr: false,
+  loading: () => (
+    <div className="relative w-full h-112.5 rounded-lg overflow-hidden bg-secondary/50 animate-pulse" />
+  )
+});
 
 const ContactsSection: React.FC = () => {
   const [formData, setFormData] = React.useState({
@@ -81,71 +89,42 @@ const ContactsSection: React.FC = () => {
                 </p>
               </div>
               {/* Contact Form */}
-              <motion.form
-                onSubmit={handleSubmit}
+
+              {/* Contact Form */}
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="max-w-xl border border-white/15 py-4 px-8 md:p-10 rounded-sm backdrop-blur-sm bg-white/5"
+                className="max-w-xl"
               >
-                <div className="space-y-8">
-                  {/* Name */}
-                  <div className="flex flex-col gap-2">
-                    <label className="text-[10px] tracking-widest uppercase text-white/40">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="bg-transparent border-b border-white/20 py-3 outline-none focus:border-accent transition-colors text-white"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex flex-col gap-2">
-                    <label className="text-[10px] tracking-widest uppercase text-white/40">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="bg-transparent border-b border-white/20 py-3 outline-none focus:border-accent transition-colors text-white"
-                      placeholder="Enter your email address"
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div className="flex flex-col gap-2">
-                    <label className="text-[10px] tracking-widest uppercase text-white/40">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="bg-transparent border-b border-white/20 py-3 outline-none focus:border-accent transition-colors text-white"
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="relative p-px rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
-                    <button className="w-full h-full px-6 py-2.5 rounded-full bg-secondary text-white text-xs font-medium uppercase tracking-wider group-hover:bg-accent group-hover:text-secondary transition-colors duration-500">
-                      Submit
-                    </button>
-                  </div>
+                <div className="ghl-form-wrapper">
+                  <iframe
+                    src="https://app.visionarybizz.com/widget/form/UCNmegomf6n4R9e3tZDr"
+                    style={{
+                      width: "100%",
+                      height: "500px",
+                      border: "none",
+                      borderRadius: "8px",
+                    }}
+                    id="inline-UCNmegomf6n4R9e3tZDr"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="Contact Form - Website"
+                    data-height="492"
+                    data-layout-iframe-id="inline-UCNmegomf6n4R9e3tZDr"
+                    data-form-id="UCNmegomf6n4R9e3tZDr"
+                    title="Contact Form - Website"
+                  />
                 </div>
-              </motion.form>
+
+                <Script
+                  src="https://app.visionarybizz.com/js/form_embed.js"
+                  strategy="lazyOnload"
+                />
+              </motion.div>
             </div>
           </div>
 
