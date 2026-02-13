@@ -128,7 +128,7 @@ const PlansSection: React.FC = () => {
             "
           >
             <div className="space-y-8">
-              <h3 className="text-sm tracking-[0.3em] uppercase text-primary">
+              <h3 className="text-sm tracking-[0.3em] uppercase text-secondary">
                 {activeProject.title}
               </h3>
 
@@ -143,7 +143,7 @@ const PlansSection: React.FC = () => {
                 className="
                   inline-flex items-center justify-center w-fit
                   px-8 py-4 rounded-full
-                  bg-primary text-white
+                  bg-gradient-gold text-white
                   text-[11px] font-semibold tracking-[0.3em] uppercase
                   hover:bg-secondary transition-colors
                 "

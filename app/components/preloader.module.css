@@ -1,0 +1,152 @@
+.preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: var(--c-blue, #051936);
+    color: var(--c-beige, #f8f0e8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.2s cubic-bezier(0.25, 0.74, 0.22, 0.99), visibility 1.2s;
+}
+
+.preloader.invisible {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.preloader__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader__pattern {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.preloader__percent {
+    position: absolute;
+    right: 2rem;
+    /* Fallback for --container-h-padding-right */
+    bottom: 2rem;
+    /* Fallback for --spacing */
+    font-family: inherit;
+    font-size: 3rem;
+    /* Adjust as needed */
+    line-height: 1;
+}
+
+.preloader__percent_wrap {
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    height: 1em;
+    /* Shows one number at a time */
+    text-align: right;
+    position: relative;
+}
+
+.preloader__percent_number {
+    transform: translateY(calc(min(0.99, var(--progress, 0)) * 100%));
+    background: linear-gradient(180deg, #eab6a0, #cf8f7d);
+    /* --c-text-gradient-light */
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 0.1s linear;
+    will-change: transform;
+    display: flex;
+    flex-direction: column-reverse;
+    /* Stack numbers 0 to 100 upwards or verify order */
+}
+
+/* 
+ The original CSS translates POSITIVE Y based on progress.
+ If we stack numbers 0..100, we probably want 0 at the bottom if we translate UP?
+ Actually legacy CSS: 
+ .preloader__percent-number {
+   transform: translateY(calc(min(.925, var(--progress)) * 100%));
+ }
+ This implies the strip moves DOWN as progress increases? 
+ Or maybe the numbers are arranged top-to-bottom:
+ 0
+ 10
+ ...
+ 100
+ And we translate Y to show the correct one.
+ 
+ Let's assume the numbers are a vertical lists.
+ If `transform: translateY(50%)` moves it down... to show the middle?
+ We will arrange 0 to 100.
+*/
+
+.preloader__percent_item {
+    padding: 5px 0;
+    display: block;
+}
+
+.preloader__percent_postfix {
+    padding: 5px 0;
+    background: linear-gradient(180deg, #eab6a0, #cf8f7d);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-left: 0.2em;
+}
+
+/* Variables matching app/globals.css */
+.preloader {
+    --c-blue: var(--color-secondary);
+    --c-text-gradient-light: var(--background-image-gradient-gold);
+    /* For pattern color, use accent (gold) or white? Let's try accent for consistency */
+    --c-beige: var(--color-accent-light);
+    --progress: 0;
+}
+
+.preloader__percent_number {
+    transform: translateY(calc(min(0.99, var(--progress, 0)) * 100%));
+    background: var(--c-text-gradient-light);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 0.1s linear;
+    will-change: transform;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.preloader__percent_postfix {
+    padding: 5px 0;
+    background: var(--c-text-gradient-light);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-left: 0.2em;
+}
+
+/* Parallax gradient animation - Removed orb effect */
+.gradient_animation {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
