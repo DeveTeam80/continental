@@ -49,9 +49,9 @@ const ArtDecoSection: React.FC = () => {
             </h2>
 
             {/* 3D RIBBON - Positioned Lower to start below "Responsibility" */}
-            <div className="absolute w-[140vw] h-[100vh] -left-[50vw] bottom-[-28vw] pointer-events-none z-[-1]">
+            {/* <div className="absolute w-[140vw] h-[100vh] -left-[50vw] bottom-[-28vw] pointer-events-none z-[-1]">
               <GoldRibbon />
-            </div>
+            </div> */}
           </motion.div>
         </div>
 
@@ -60,7 +60,7 @@ const ArtDecoSection: React.FC = () => {
           style={{ y: imageY, marginTop: "-10vh" }}
           className="max-w-2xl mx-auto relative group will-change-transform"
         >
-          <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-2xl">
+          <div className="aspect-3/4 overflow-hidden rounded-sm shadow-2xl">
             <ParallaxImage
               src="/assets/images/horizon/horizons-5.png"
               alt="Art Deco Luxury"

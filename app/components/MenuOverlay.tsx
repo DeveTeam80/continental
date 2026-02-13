@@ -12,7 +12,13 @@ interface MenuOverlayProps {
 }
 
 const ITEMS = [
+  
   {
+    title: "HOME",
+    href: "/",
+    image:
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2000",
+  },{
     title: "LIFE AT CONTINENTAL",
     href: "/life-at-continental",
     image:
@@ -173,7 +179,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
                   );
                 })}
 
-                <div className="mt-14 border-t border-white/10 pt-8 space-y-2">
+                <div className="mt-10 border-t border-white/10 pt-8 space-y-2">
                   {SUB_LINKS.map((link) => (
                     <div
                       key={link}
@@ -187,7 +193,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
             </div>
 
             {/* Bottom Bar */}
-            <div className="flex items-center justify-end">
+            <div className="flex items-center justify-end -mt-10.5">
               <div className="flex items-center gap-4">
                 <a
                   href="https://instagram.com"

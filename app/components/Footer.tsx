@@ -33,7 +33,7 @@ function Footer() {
             Email Us
           </h4>
           <p className="text-white leading-relaxed">
-            support@thecontinentalgroup.in
+             wecare@continental-group.in
           </p>
 
           {/* Social Media */}

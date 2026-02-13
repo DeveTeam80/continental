@@ -10,19 +10,14 @@ const HeroSection: React.FC = () => {
     offset: ["start end", "end start"],
   });
 
+  // UPDATED PHYSICS: Looser spring for a "floaty/smooth" luxury feel
   const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 40,  // Was 100. Lower = more "lag" behind scroll
+    damping: 20,    // Was 30. Lower = smoother settling
     restDelta: 0.001,
   });
 
-  const ring1Opacity = useTransform(smoothScroll, [0, 0.2], [0, 1]);
-  const ring2Opacity = useTransform(smoothScroll, [0.3, 0.5], [0, 1]);
-  const ring3Opacity = useTransform(smoothScroll, [0.6, 0.8], [0, 1]);
-
-  const ringScale = useTransform(smoothScroll, [0, 1], [0.8, 1.2]);
-  const ringRotate = useTransform(smoothScroll, [0, 1], [0, 180]);
-
+  // Parallax Transforms
   const textY = useTransform(smoothScroll, [0, 1], [100, -100]);
   const imageY = useTransform(smoothScroll, [0, 1], [50, -50]);
 
@@ -40,7 +35,8 @@ const HeroSection: React.FC = () => {
         <div className="container mx-auto mt-25 relative z-10 w-full max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Text Content */}
-            <motion.div style={{ y: textY }} className="lg:col-span-12 -z-20">
+         <motion.div
+            style={{ y: textY }} className="lg:col-span-12 -z-20">
               <h1 className="text-[6vw] leading-none font-serif tracking-tighter text-gradient-gold py-2 text-center">
                 CONTINENTAL GROUP
               </h1>

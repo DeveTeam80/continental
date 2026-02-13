@@ -11,10 +11,13 @@ const LifeSection: React.FC = () => {
   });
 
   const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 25,
+    stiffness: 40,
+    damping: 20,
+    restDelta: 0.001,
   });
 
+  // Parallax Transforms
+  const textY = useTransform(smoothScroll, [0, 1], [100, -100]);
   /* Subtle parallax upward movement */
   const patternY = useTransform(smoothScroll, [0, 1], ["0%", "-10%"]);
   const image1Y = useTransform(smoothScroll, [0, 1], ["6%", "-8%"]);
@@ -57,6 +60,7 @@ const LifeSection: React.FC = () => {
             <motion.h3
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              style={{ y: textY }}
               className="text-4xl md:text-5xl text-gradient-gold leading-tight"
             >
               The First Step <br /> Into Belonging
@@ -64,6 +68,7 @@ const LifeSection: React.FC = () => {
 
             <motion.p
               initial={{ opacity: 0 }}
+              style={{ y: textY }}
               whileInView={{ opacity: 1 }}
               className="text-white/70 text-base font-light leading-relaxed max-w-sm"
             >
@@ -95,6 +100,7 @@ const LifeSection: React.FC = () => {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            style={{ y: textY }}
             className="md:col-span-6 flex justify-center md:justify-start mb-12 md:mb-0"
           >
             <img
@@ -108,10 +114,16 @@ const LifeSection: React.FC = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            style={{ y: textY }}
             className="md:col-span-6"
           >
             <p className="text-white/70 text-base font-light leading-relaxed max-w-md">
-             The grand entrance is not merely a lobby, it is a statement of identity. Every material, every proportion, every framed presence speaks of heritage, reverence, and quiet pride. This is a space designed to honour where you come from, while welcoming you into where you are going. A setting that feels refined, familiar, and deeply personal, because true luxury begins with recognition.
+              The grand entrance is not merely a lobby, it is a statement of
+              identity. Every material, every proportion, every framed presence
+              speaks of heritage, reverence, and quiet pride. This is a space
+              designed to honour where you come from, while welcoming you into
+              where you are going. A setting that feels refined, familiar, and
+              deeply personal, because true luxury begins with recognition.
             </p>
           </motion.div>
         </div>
@@ -120,7 +132,7 @@ const LifeSection: React.FC = () => {
           <div className="relative">
             {/* Right Image */}
             <motion.div
-              style={{ y: image2Y }}
+              style={{ y: image3Y }}
               className="hidden md:block float-right w-[40%] ml-12 mb-88"
             >
               <img
@@ -132,7 +144,7 @@ const LifeSection: React.FC = () => {
             {/* Left Image */}
             <motion.div
               style={{ y: image3Y }}
-              className="w-full md:w-[50%] float-left mr-12 mb-8 aspect-3/4"
+              className="w-full md:w-[50%] float-left mr-12 aspect-5/4"
             >
               <img
                 src="/assets/images/horizon/amenities-gallery/lifr-lobby-ent-01.jpg"
@@ -141,15 +153,17 @@ const LifeSection: React.FC = () => {
               />
             </motion.div>
             {/* Editorial Text */}
-            <p className="clear-right text-3xl leading-relaxed tracking-wide text-primary uppercase">
-              <span className="text-gradient-gold font-medium">
-                Life at Continental is designed around balance, between elegance
-                and ease, privacy and connection. Amenities feel intuitive
-                rather than excessive, creating an atmosphere where comfort
-                flows naturally and community feels organic. It is luxury that
-                supports your life, not interrupts it.
-              </span>
-            </p>
+            <motion.div style={{ y: textY }}>
+              <p className="clear-right text-3xl leading-relaxed tracking-wide text-primary uppercase">
+                <span className="text-gradient-gold font-medium">
+                  Life at Continental is designed around balance, between
+                  elegance and ease, privacy and connection. Amenities feel
+                  intuitive rather than excessive, creating an atmosphere where
+                  comfort flows naturally and community feels organic. It is
+                  luxury that supports your life, not interrupts it.
+                </span>
+              </p>
+            </motion.div>
             <div className="clear-both" />
           </div>
         </div>
@@ -186,7 +200,7 @@ const LifeSection: React.FC = () => {
                 <div className="w-16 h-px bg-primary mb-8" />
                 <p className="text-lg md:text-xl font-light text-white/80 leading-relaxed italic">
                   Through vine-covered arches you can get inside these green
-                  walls, into the heart of ERA ,  the central park.
+                  walls, into the heart of ERA , the central park.
                 </p>
               </motion.div>
             </div>
