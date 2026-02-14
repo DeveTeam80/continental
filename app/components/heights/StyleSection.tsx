@@ -34,14 +34,20 @@ export const StyleSection: React.FC = () => {
           <div className="hidden md:block float-right w-[46%] mb-[40%]">
             <Reveal delay={0.2}>
               <p className="text-xl md:text-2xlfont-light leading-relaxed mb-8">
-                <span className="text-era-brick font-medium">
-                  Experience the epitome of style. Sophisticated. Majestic.
+                <span className="text-accent">
+                  Mazgaon had history. <br />
+                  Continental Heights gave it a new benchmark.
+                  <br />
+                  <br />
                 </span>
-                <br />
-                <span className="opacity-80">
-                  Since 1925, Art Deco has captivated the minds of artists and
-                  architects.
-                </span>
+                <span>
+                   It did not redefine the skyline through scale alone,
+                  but through intention. From separate amenities designed with
+                  sensitivity, to spaces that encourage both privacy and
+                  togetherness, Heights created an environment where families
+                  felt understood without explanation. It became more than an
+                  address, it became a shared standard of living.
+                  </span>
               </p>
             </Reveal>
           </div>
@@ -49,7 +55,7 @@ export const StyleSection: React.FC = () => {
           {/* Left Image */}
           <div className="w-full md:w-[50%] float-left mr-12 mb-8">
             <ParallaxImage
-              src="/assets/images/media/landing/joy/image-1@md.webp"
+              src="/assets/images/horizon/about-ch-01.jpg"
               alt=""
               className="w-full"
               speed={0.2}
@@ -60,10 +66,11 @@ export const StyleSection: React.FC = () => {
           <p className="joy-editorial-text clear-right text-3xl leading-relaxed tracking-wide text-white/80 uppercase">
             <Reveal delay={0.6} className="mt-8 md:mt-20">
               <p className="text-3xl md:text-4xl  font-normal leading-tight">
-                Art Deco has graced countless cities with its opulent buildings,
-                but the city's architecture has never seen such a grand
-                expression of the style.{" "}
-                <span className="text-era-brick">Until ERA.</span>
+                Continental Heights was never introduced as a project. It was
+                envisioned as a standard. At a time when luxury was often loud
+                and impersonal, Heights quietly delivered something more
+                meaningful, a residence shaped around cultural understanding,
+                privacy, and architectural dignity.
               </p>
             </Reveal>
           </p>
@@ -79,9 +86,11 @@ export const StyleSection: React.FC = () => {
           <div className="md:col-start-9 md:col-span-4">
             <Reveal delay={0.8} direction="left">
               <p className="text-sm md:text-basefont-light opacity-60 leading-relaxed">
-                Celebrating refined elegance and living in the moment, Art Deco
-                was at odds with Soviet ideology, yet its influence is
-                undeniable in the design of the Seven Sisters skyscrapers.
+                Today, Continental Heights is largely established, a living
+                testament to the trust it has earned. A final release of premium
+                upper-floor residences <br /> (50th–55th floors) and select
+                commercial spaces now remains, offering a rare opportunity to
+                become part of an address already embraced by the community.
               </p>
             </Reveal>
           </div>

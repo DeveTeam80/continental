@@ -35,14 +35,14 @@ const Header: React.FC<HeaderProps> = ({ onMenuOpen }) => {
           MENU
         </button>
 
-        <div className="relative p-px rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
-          <button className="w-full h-full px-6 py-2.5 rounded-full bg-secondary text-white text-xs font-medium uppercase tracking-wider group-hover:bg-white group-hover:text-secondary transition-colors duration-500">
+        <div className="relative p-px rounded-full group hover:scale-[1.04] transition-transform duration-500 hidden md:block border border-accent">
+          <button className="w-full h-full px-6 py-2.5 rounded-full bg-transparent text-white text-xs font-medium uppercase tracking-wider group-hover:bg-secondary group-hover:text-accent transition-colors duration-500">
             SELECT APARTMENT
           </button>
         </div>
 
-        <div className="relative p-px rounded-full bg-gradient-gold group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
-          <button className="w-full h-full px-6 py-2.5 rounded-full bg-secondary text-white text-xs font-medium uppercase tracking-wider group-hover:bg-white group-hover:text-secondary transition-colors duration-500">
+        <div className="relative p-px rounded-full border border-accent group hover:scale-[1.04] transition-transform duration-500 hidden md:block">
+          <button className="w-full h-full px-6 py-2.5 rounded-full bg-transparent text-white text-xs font-medium uppercase tracking-wider group-hover:bg-secondary group-hover:text-accent transition-colors duration-500">
             VIRTUAL TOUR
           </button>
         </div>
